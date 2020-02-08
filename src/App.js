@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Card from "./Components/Card";
 import SearchBar from "./Components/SearchBar"
 
+const SOUND_CLOUD_API_KEY = process.env.local.SOUND_CLOUD_API_KEY;
+
 const Background = styled.div`
 
   width: 100%;
@@ -14,13 +16,13 @@ const Background = styled.div`
 
 class App extends Component {
 
-  state = { playing: false, key: null, query: '', data: null };
+  state = { playing: false, key: SOUND_CLOUD_API_KEY, query: '', data: null };
 
-  componentDidMount() {
-    this.callBackendAPI()
-      .then(res => this.setState({ key: res.key }))
-      .catch(err => console.log(err));
-  }
+  // componentDidMount() {
+  //   this.callBackendAPI()
+  //     .then(res => this.setState({ key: res.key }))
+  //     .catch(err => console.log(err));
+  // }
 
   select = (i) => {
     let trackOrder = this.state.data;
