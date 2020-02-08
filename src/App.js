@@ -3,7 +3,9 @@ import "./App.css";
 import styled from "styled-components";
 import Card from "./Components/Card";
 import SearchBar from "./Components/SearchBar"
-// require('dotenv').config({ path: '/' })
+import { connect } from 'react-redux';
+
+import { simpleAction } from './actions/simpleAction';
 
 
 const Background = styled.div`
@@ -13,14 +15,27 @@ const Background = styled.div`
   overflow: none;
 `;
 
+const mapStateToProps = state => ({
+  ...state
+ })
+
+ const mapDispatchToProps = dispatch => ({
+  simpleAction: () => dispatch(simpleAction())
+ })
+
 class App extends Component {
 
-  state = { playing: false, key: process.env.REACT_APP_SOUNDCLOUD_API_KEY, query: '', data: null };
+  state = { playing: false, query: '', data: null };
 
   componentDidMount(){
     console.log('olo', this.state)
   }
 
+  simpleAction = (event) => {
+    this.props.simpleAction();
+   }
+
+  
   select = (i) => {
     let trackOrder = this.state.data;
     let temp = trackOrder[0];
@@ -30,9 +45,10 @@ class App extends Component {
   }
 
   searchTracks = () => {
-    const { key, query } = this.state;
+    const SOUNDCLOUD_API_KEY = process.env.REACT_APP_SOUNDCLOUD_API_KEY;
+    const { query } = this.state;
     fetch(
-      `https://api.soundcloud.com/tracks/?client_id=${key}&q=${query}`
+      `https://api.soundcloud.com/tracks/?client_id=${SOUNDCLOUD_API_KEY}&q=${query}`
     ).then(response => {
       if (response.status != 200) {
         console.log(response.status);
@@ -62,6 +78,12 @@ class App extends Component {
     return (
       <div className="App">
         <Background>
+        <pre>
+          {
+            JSON.stringify(this.props)
+          }
+          </pre>
+        <button onClick={this.simpleAction}>Test redux action</button>
           <SearchBar
             playing={playing}
             handleInputChange={handleInputChange}
@@ -72,5 +94,5 @@ class App extends Component {
     );
   }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default App;

@@ -78,8 +78,5 @@ const Albumcard = ({
         <Cover select={select} data={data} playing={playing} />
       </React.Fragment>
       }
-
-
-
     </Frame>
   );
