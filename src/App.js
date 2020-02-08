@@ -3,11 +3,10 @@ import "./App.css";
 import styled from "styled-components";
 import Card from "./Components/Card";
 import SearchBar from "./Components/SearchBar"
+// require('dotenv').config({ path: '/' })
 
-const SOUND_CLOUD_API_KEY = process.env.local.SOUND_CLOUD_API_KEY;
 
 const Background = styled.div`
-
   width: 100%;
   height: 100%;
   background: #d2d8db;
@@ -16,13 +15,11 @@ const Background = styled.div`
 
 class App extends Component {
 
-  state = { playing: false, key: SOUND_CLOUD_API_KEY, query: '', data: null };
+  state = { playing: false, key: process.env.REACT_APP_SOUNDCLOUD_API_KEY, query: '', data: null };
 
-  // componentDidMount() {
-  //   this.callBackendAPI()
-  //     .then(res => this.setState({ key: res.key }))
-  //     .catch(err => console.log(err));
-  // }
+  componentDidMount(){
+    console.log('olo', this.state)
+  }
 
   select = (i) => {
     let trackOrder = this.state.data;
@@ -31,18 +28,6 @@ class App extends Component {
     trackOrder[i] = temp;
     this.setState({ data: trackOrder, playing: true })
   }
-
-  // Fetches GET route from the Express server to get the private key for soundcloud api
-  callBackendAPI = async () => {
-    const response = await fetch("/soundcloud/key");
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
-
 
   searchTracks = () => {
     const { key, query } = this.state;
