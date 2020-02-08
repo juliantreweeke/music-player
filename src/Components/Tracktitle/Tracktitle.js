@@ -27,17 +27,11 @@ const Frame = styled.ul`
   }
 `;
 
-const List = styled.span`
-border: "1px black solid",
-color: "black",
-fontSize: "1em",
-listStyle: "none"
-`;
-
-export default function Clock({tracks,titles,select}) {
+export default function Tracktitle({select,titles,tracks}) {
   return (
     <div>
       <div>{titles}</div>
+      {tracks[0]}
       <Frame>
         <Transition
           native

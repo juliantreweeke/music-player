@@ -25,10 +25,9 @@ const mapStateToProps = state => ({
 
 class App extends Component {
 
-  state = { playing: false, query: '', data: null };
-
+  
   componentDidMount(){
-    console.log('olo', this.state)
+    console.log('olo', this.props)
   }
 
   simpleAction = (event) => {
@@ -46,7 +45,7 @@ class App extends Component {
 
   searchTracks = () => {
     const SOUNDCLOUD_API_KEY = process.env.REACT_APP_SOUNDCLOUD_API_KEY;
-    const { query } = this.state;
+    const { query } = this.props;
     fetch(
       `https://api.soundcloud.com/tracks/?client_id=${SOUNDCLOUD_API_KEY}&q=${query}`
     ).then(response => {
@@ -72,8 +71,8 @@ class App extends Component {
   togglePlay = () => this.setState(state => ({ playing: !state.playing }));
 
   render() {
+    const { playing, data } = this.props;
     const { handleInputChange, searchTracks, togglePlay, select } = this;
-    const { playing, data } = this.state;
 
     return (
       <div className="App">
