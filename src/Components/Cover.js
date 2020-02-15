@@ -1,7 +1,6 @@
 import React from "react";
 import { Spring } from "react-spring";
 import styled from "styled-components";
-import Tracklist from "./Tracklist";
 
 const Frame = styled.div`
   position: absolute;
@@ -12,8 +11,8 @@ const Frame = styled.div`
   z-index: -1;
 `;
 
-const Tracks = ({ playing, height, top }) => (
-  <Frame style={{ height, top }}>{!playing && <Tracklist/>}</Frame>
+const Tracks = ({ height, top }) => (
+  <Frame style={{ height, top }}></Frame>
 );
 
 const Cover = ({

@@ -7,6 +7,8 @@ const PLAY = "M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28";
 const Shape = ({ rotation, togglePlay, color, shape, y, x }) => (
   <div>
     <svg version="1.1" viewBox={`${y} ${x} 150 160`}>
+    {/* <svg version="1.1" viewBox={`${y} ${x} 150 160`}> */}
+
       <g
         style={{
           position: "absolute",

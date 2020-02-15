@@ -3,6 +3,7 @@ export const actionTypes = {
     SET_DATA: "SET_DATA",
     SET_PLAY: "SET_PLAY",
     SET_QUERY: "SET_QUERY",
+    SET_QUERYSEARCHED: "SET_QUERYSEARCHED",
     SET_TRACKS: "SET_TRACKS",
     TOGGLE_PLAY: "TOGGLE_PLAY",
   };
@@ -12,12 +13,13 @@ export const actions = {
     setData: (data) => ({type: actionTypes.SET_DATA, payload:data}),
     setPlay: () => ({type: actionTypes.SET_PLAY}),
     setQuery: (query) => ({type: actionTypes.SET_QUERY, payload:query}), 
+    setQuerySearched: () => ({type: actionTypes.SET_QUERYSEARCHED}), 
     setTracks: (tracks) => ({type: actionTypes.SET_TRACKS, payload:tracks}),
     togglePlay: () => ({type: actionTypes.TOGGLE_PLAY}),
  };
 
  const initialState = {
-    data: null, playing: false, query: '', tracks: []
+    data: null, playing: false, query: '', querySearched:'', tracks: []
   };
 
 export const rootReducer = (state = initialState, action) => {
@@ -30,6 +32,8 @@ export const rootReducer = (state = initialState, action) => {
         return { ...state, playing:true };
         case actionTypes.SET_QUERY:
         return { ...state, query:action.payload };
+        case actionTypes.SET_QUERYSEARCHED:
+        return { ...state, querySearched:state.query};
         case actionTypes.SET_TRACKS:
         return { ...state, tracks:action.payload };
         case actionTypes.TOGGLE_PLAY:

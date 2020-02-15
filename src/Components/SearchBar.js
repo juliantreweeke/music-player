@@ -6,6 +6,7 @@ const Container= styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom:150px;
 `;
 const Searchbox = styled.div`
   position:relative;

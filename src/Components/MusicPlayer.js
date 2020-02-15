@@ -5,29 +5,20 @@ import Playbutton from "./Playbutton";
 import Cover from "./Cover";
 import Header from "./Header";
 import Heading from "./Heading";
+import { CenteredContainer } from "./Grid";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Frame = styled.div`
-  margin-top:150px;
-  margin-bottom:150px;
-  position: relative;
-  width: 400px;
-  height: 700px;
+export const Card = styled.div`
+  min-width:80%;
+  height: 400px;
   border-radius: 8px;
   background: #1b1d1e;
   border: 2px solid #black;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
-const Card = ({ playing, togglePlay, data }) => {
-
+const MusicPlayerContainer = ({ playing, togglePlay, data }) => {
   return (
-    <Container>
+    <CenteredContainer>
       <Spring
         from={{ color: "black" }}
         to={{
@@ -38,17 +29,17 @@ const Card = ({ playing, togglePlay, data }) => {
           height: playing ? "0%" : "50%"
         }}
         togglePlay={togglePlay} 
-        children={Albumcard} 
+        children={MusicPlayer} 
         playing={playing}
         data={data}
       />
-    </Container>
+    </CenteredContainer>
   );
 };
 
-export default Card;
+export default MusicPlayerContainer;
 
-const Albumcard = ({
+const MusicPlayer = ({
   color,
   scale,
   rotation,
@@ -56,7 +47,7 @@ const Albumcard = ({
   togglePlay,
   data,
 }) => (
-    <Frame
+    <Card
       style={{
         color,
         transform: `scale3d(${scale}, ${scale}, ${scale}) rotate(${rotation})`
@@ -69,5 +60,5 @@ const Albumcard = ({
         <Cover data={data} playing={playing} />
       </React.Fragment>
       }
-    </Frame>
+    </Card>
   );
