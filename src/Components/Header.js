@@ -66,9 +66,9 @@ export default class Header extends Component {
           borderRadius: playing ? "100" : "0",
           color: playing ? "#247BA0" : "#70C1B3",
           scale: playing ? 2 : 1,
-          width: playing ? "66" : "100",
+          width: playing ? "45" : "80",
           margin: playing ? 0 : 0,
-          height: playing ? "38" : "50",
+          height: playing ? "45" : "80",
           rotation: playing ? `${degree}` : "0"
         }}
         image={imageUrlEdit}

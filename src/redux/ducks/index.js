@@ -19,7 +19,7 @@ export const actions = {
  };
 
  const initialState = {
-    data: null, playing: false, query: '', querySearched:'', tracks: []
+    data: null, playing: false, query: '', querySearched:'bobo', tracks: []
   };
 
 export const rootReducer = (state = initialState, action) => {

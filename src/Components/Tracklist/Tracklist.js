@@ -7,13 +7,14 @@ const defaultStyles = {
   fontSize: "1em",
   listStyle: "none",
   overflow: "hidden",
-  margin:"24px",
+  margin:"12px",
+  maxWidth:"400px",
 };
 
 
 const HeadingContainer =  styled.div`
   align-items:center;
-  color:white;
+  color:black;
   display:inline-flex;
   margin-top:24px;
   margin-left:24px;
@@ -30,32 +31,6 @@ const TrackContainer = styled.div`
   overflow:auto;
   height: 400px;
 `
-
-// const Frame = styled.ul`
-//   position: absolute;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   margin: 0px;
-//   padding: 0px;
-//   overflow: hidden;
-//   overflow-y: scroll;
-//   height: 100%;
-//   & p {
-//     text-align: left;
-//     margin-left: 15px;
-//     margin-top: 30px;
-//   }
-// `;
-
-
-// const Frame = styled.ul`
-//   & p {
-//     text-align: left;
-//     margin-left: 15px;
-//     margin-top: 30px;
-//   }
-// `;
 
 export default function Tracklist({querySearched, selectTrack, tracks}) {
   return (
