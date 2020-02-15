@@ -1,8 +1,6 @@
 import React from "react";
-import { Spring } from "react-spring";
 import styled from "styled-components";
 import  SVG  from './SVG'
-
 
 const Container= styled.div `
   display: flex;
@@ -52,7 +50,6 @@ const SearchButton = styled.a `
 `;
 
 const SearchBar = ({
-        playing,
         handleInputChange,
         searchTracks
     }) => {

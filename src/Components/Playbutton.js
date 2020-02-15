@@ -4,15 +4,7 @@ import { Spring } from "react-spring";
 const PAUSE = "M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26";
 const PLAY = "M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28";
 
-const svgstyles = {
-  position: "fixed",
-  top: "0",
-  left: "0",
-  height: "100%",
-  width: "100%"
-};
-
-const Shape = ({ rotation, togglePlay, color, scale, shape, y, x }) => (
+const Shape = ({ rotation, togglePlay, color, shape, y, x }) => (
   <div>
     <svg version="1.1" viewBox={`${y} ${x} 150 160`}>
       <g

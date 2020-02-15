@@ -1,7 +1,7 @@
 import React from "react";
 import { Spring } from "react-spring";
 import styled from "styled-components";
-import Tracktitle from "./Tracktitle";
+import Tracklist from "./Tracklist";
 
 const Frame = styled.div`
   position: absolute;
@@ -12,14 +12,13 @@ const Frame = styled.div`
   z-index: -1;
 `;
 
-const Tracklist = ({ height, top, playing, data, select }) => (
-  <Frame style={{ height, top }}>{!playing && <Tracktitle select={select} data={data} />}</Frame>
+const Tracks = ({ playing, height, top }) => (
+  <Frame style={{ height, top }}>{!playing && <Tracklist/>}</Frame>
 );
 
 const Cover = ({
     playing,
     data,
-    select
   }) => {
   return (
     <Spring
@@ -28,10 +27,9 @@ const Cover = ({
         top: playing ? "100%" : "40%",
         height: playing ? "0%" : "60%"
       }}
-      children={Tracklist} // Render prop
+      children={Tracks} 
       playing={playing}
       data={data}
-      select={select}
     />
   );
 };

@@ -1,0 +1,1 @@
+export const DEFAULT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Antu_soundcloud.svg/2000px-Antu_soundcloud.svg.png";

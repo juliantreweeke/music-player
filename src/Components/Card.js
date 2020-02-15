@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Spring } from "react-spring";
 import Playbutton from "./Playbutton";
@@ -24,12 +24,7 @@ const Frame = styled.div`
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
-const Card = (props) => {
-  const { playing, togglePlay, data, select } = props;
-  if (data) {
-    console.log();
-  }
-
+const Card = ({ playing, togglePlay, data }) => {
 
   return (
     <Container>
@@ -42,11 +37,10 @@ const Card = (props) => {
           scaleX: playing ? -1 : 0,
           height: playing ? "0%" : "50%"
         }}
-        togglePlay={togglePlay} // Additional props will be spread over the child
-        children={Albumcard} // Render prop
+        togglePlay={togglePlay} 
+        children={Albumcard} 
         playing={playing}
         data={data}
-        select={select}
       />
     </Container>
   );
@@ -60,10 +54,7 @@ const Albumcard = ({
   rotation,
   playing,
   togglePlay,
-  scaleX,
-  height,
   data,
-  select
 }) => (
     <Frame
       style={{
@@ -75,7 +66,7 @@ const Albumcard = ({
       {data && data[0] && < React.Fragment >
         <Header image={data[0].artwork_url} playing={playing} />
         <Heading heading={data[0].title} playing={playing} />
-        <Cover select={select} data={data} playing={playing} />
+        <Cover data={data} playing={playing} />
       </React.Fragment>
       }
     </Frame>

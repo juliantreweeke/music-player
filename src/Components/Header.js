@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Spring } from "react-spring";
 import styled from "styled-components";
+import { DEFAULT_IMAGE_URL } from '../../src/constants';
 
 const Frame = styled.div`
   position: absolute;
@@ -11,7 +12,6 @@ const Frame = styled.div`
 `;
 
 const Imagecard = ({
-  playing,
   rotation,
   height,
   borderRadius,
@@ -53,15 +53,8 @@ export default class Header extends Component {
   }
 
   render() {
-
     const { playing, image } = this.props;
-    // replace default soundcloud api sizing
-    // if no image go with default image
-    const imageUrlEdit = image ? image.replace("large", "t500x500") :
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Antu_soundcloud.svg/2000px-Antu_soundcloud.svg.png";
-
-
-
+    const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
     const { degree } = this.state;
 
     return (
@@ -79,7 +72,7 @@ export default class Header extends Component {
           rotation: playing ? `${degree}` : "0"
         }}
         image={imageUrlEdit}
-        children={Imagecard} // Render prop
+        children={Imagecard} 
         playing={playing}
       />
     );

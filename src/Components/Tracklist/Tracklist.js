@@ -27,10 +27,9 @@ const Frame = styled.ul`
   }
 `;
 
-export default function Tracktitle({select,titles,tracks}) {
+export default function Tracklist({selectTrack, tracks}) {
   return (
     <div>
-      <div>{titles}</div>
       {tracks[0]}
       <Frame>
         <Transition
@@ -40,9 +39,9 @@ export default function Tracktitle({select,titles,tracks}) {
           enter={{ opacity: 1, height: 75 }}
           leave={{ opacity: 0, height: 0 }}
         >
-          {tracks.map((track, i) => styles => (
+          {tracks.map((track, index) => styles => (
             <animated.li style={{ ...defaultStyles, ...styles }}>
-              <p index={i} onClick={() => select(i)}>{track}</p>
+              <p index={index} onClick={() => selectTrack(index)}>{track}</p>
             </animated.li>
           ))}
         </Transition>
