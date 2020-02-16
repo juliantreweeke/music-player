@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import MusicPlayer from "./Components/MusicPlayer";
 import SearchBar from "./Components/SearchBar";
-import Tracklist from "./Components/Tracklist";
+import { TracklistContainer } from "./Components/Tracklist/index.js";
 import { Col, Layout, Row} from "./Components/Grid";
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from './redux/ducks/index.js';
 
 const Background = styled.div`
@@ -14,25 +14,17 @@ const Background = styled.div`
   overflow: none;
 `;
 
-const mapStateToProps = state => ({
-  ...state
- })
+export const App = () => {
 
- const mapDispatchToProps = dispatch => ({
-  selectTrack: (index) => dispatch(actions.selectTrack(index)),
-  setData: (data) => dispatch(actions.setData(data)),
-  setPlay: () => dispatch(actions.setPlay()),
-  setQuery: (query) => dispatch(actions.setQuery(query)),
-  setQuerySearched: () => dispatch(actions.setQuerySearched()),
-  togglePlay: () => dispatch(actions.togglePlay()),
- })
+  const data = useSelector(state => state.data);
+  const playing = useSelector(state => state.playing);
+  const query = useSelector(state => state.query);
+  const querySearched = useSelector(state => state.querySearched);
+  const tracks = useSelector(state => state.tracks);
+  const dispatch = useDispatch();
 
-class App extends Component {
-
-  searchTracks = () => {
+  const searchTracks = () => {
     const SOUNDCLOUD_API_KEY = process.env.REACT_APP_SOUNDCLOUD_API_KEY;
-    const { query } = this.props;
-
     fetch(
       `https://api.soundcloud.com/tracks/?client_id=${SOUNDCLOUD_API_KEY}&q=${query}`
     ).then(response => {
@@ -42,20 +34,16 @@ class App extends Component {
       }
       response.json().then(data => {
         if (data) {
-          this.props.setData(data);
-          this.props.setQuerySearched();
+          dispatch(actions.setData(data));
+          dispatch(actions.setQuerySearched());
         }
       });
     });
   }
 
-  handleInputChange = (event) => {
-    this.props.setQuery(event.target.value)
+  const handleInputChange = (event) => {
+    dispatch(actions.setQuery(event.target.value));
   }
-
-  render() {
-    const { playing, data, togglePlay } = this.props;
-    const { handleInputChange, searchTracks } = this;
 
     return (
         <Background>
@@ -70,16 +58,13 @@ class App extends Component {
             </Row>
             <Row wrap="true">
               <Col size="1">  
-                <MusicPlayer data={data} playing={playing} togglePlay={togglePlay} />
+                <MusicPlayer data={data} playing={playing} togglePlay={() => dispatch(actions.togglePlay())} />
               </Col>
               <Col size="1" >
-                <Tracklist />
+                <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} />
               </Col> 
             </Row>
           </Layout>
         </Background>
     );
-  }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-

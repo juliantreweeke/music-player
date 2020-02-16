@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Spring } from "react-spring";
 import Playbutton from "./Playbutton";
-import Header from "./Header";
+import { Header } from "./Header";
 import { CenteredContainer } from "./Grid";
 
 export const Card = styled.div`

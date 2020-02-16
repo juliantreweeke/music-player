@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react';
 import { Spring } from "react-spring";
 import styled from "styled-components";
 import { DEFAULT_IMAGE_URL } from '../../src/constants';
@@ -37,25 +37,18 @@ const Imagecard = ({
     </div>
   );
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { degree: 0 };
-    this.tick = this.tick.bind(this);
+export const Header = ({playing, image}) => {
+  let [degree, setDegree] = useState(0);
+
+  const tick = () => {
+  setInterval(() => setDegree(degree++ ) , 100)
   }
 
-  tick() {
-    this.setState({ degree: this.state.degree + 1 });
-  }
+  const useMountEffect = (func) => useEffect(func, [])
 
-  componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 100);
-  }
+  useMountEffect(tick)
 
-  render() {
-    const { playing, image } = this.props;
     const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
-    const { degree } = this.state;
 
     return (
       <Spring
@@ -76,5 +69,6 @@ export default class Header extends Component {
         playing={playing}
       />
     );
-  }
 }
+
+

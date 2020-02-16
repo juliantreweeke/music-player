@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { useEffect, useCallback } from "react";
 import styled from "styled-components";
 import Tracklist from './Tracklist.js'; 
 import { CenteredContainer } from "../Grid";
-import { connect } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { actions } from '../../redux/ducks/index.js';
 
 export const Card = styled.div`
@@ -13,61 +13,47 @@ export const Card = styled.div`
   border: 2px solid black;
 `;
 
-const mapStateToProps = state => ({
-  ...state
- })
-
- const mapDispatchToProps = dispatch => ({
-  resetTracks: () => dispatch(actions.resetTracks()),
-  setData: (data) => dispatch(actions.setData(data)),
-  setPlay: () => dispatch(actions.setPlay()),
-  setTracks: (tracks) => dispatch(actions.setTracks(tracks)),
- })
-
-class TracklistContainer extends Component {
-
-  componentDidUpdate(prevProps) {
-    if ( this.props.data !== prevProps.data ) {
-      this.props.resetTracks();
-      this.animateTitles();
-    }
-  }
+export const TracklistContainer = ({data, querySearched, tracks}) => {
   
-  animateTitles = () => {
-    const { data } = this.props;
+  const dispatch = useDispatch();
+
+  const animateTitles = useCallback(() => {
     let timeOutLength = 100;
     if (data) {
       data.forEach(track => {
-        setTimeout(() => this.props.setTracks([...this.props.tracks, track.title]), timeOutLength);
+        setTimeout(() => dispatch(actions.addTrack(track.title), timeOutLength));
         timeOutLength += 200;
       })
     }
-  }
+  },[data, dispatch]);
 
-   selectTrack = (i) => {
-    let trackOrder = this.props.data;
+  useEffect(() => {
+    const initTrackList = () => {
+      dispatch(actions.resetTracks());
+      animateTitles();
+    };
+    initTrackList()
+  }, [animateTitles, data, dispatch]);
+
+   const selectTrack = (i) => {
+    let trackOrder = data;
     let temp = trackOrder[0];
     trackOrder[0] = trackOrder[i];
     trackOrder[i] = temp;
-    this.props.resetTracks();
-    this.props.setPlay();
-    this.props.setData(trackOrder);
-    this.animateTitles();
+    dispatch(actions.resetTracks());
+    dispatch(actions.setPlay());
+    dispatch(actions.setData(trackOrder));
+    animateTitles();
   }
-
-  render() {  
       return (
         <CenteredContainer>
           <Card>
-             {this.props.tracks && <Tracklist
-              querySearched={this.props.querySearched}
-              tracks={this.props.tracks}
-              selectTrack={this.selectTrack}
+             {tracks && <Tracklist
+              querySearched={querySearched}
+              tracks={tracks}
+              selectTrack={selectTrack}
             />}
           </Card>
         </CenteredContainer>
       )       
-  }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TracklistContainer);
