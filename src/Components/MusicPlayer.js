@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Spring } from "react-spring";
 import Playbutton from "./Playbutton";
+import { NavigationButtons } from "./NavigationButtons";
 import { TrackImage } from "./TrackImage";
 
-export const Card = styled.div`
+const Card = styled.div`
   display:flex;
   min-width:80%;
   justify-content:center;
@@ -46,8 +47,9 @@ const MusicPlayer = ({
         color,
         transform: `rotate(${rotation})`
       }}
-    >
+    >``
       <Playbutton playing={playing} togglePlay={togglePlay} />
+      {/* <NavigationButtons /> */}
       {data && data[0] && <React.Fragment>
         <TrackImage image={data[selectedTrack].artwork_url} playing={playing} />
       </React.Fragment>
