@@ -16,6 +16,10 @@ const media = {
 export const Layout = styled.div`
     margin-left:${(props) => props.margin}vw;
     margin-right:${(props) => props.margin}vw;
+    @media only screen and (max-width: 772px) {
+    margin-left:0px;
+    margin-right:0px;
+    }
 `
 
 export const Row = styled.div`
@@ -23,6 +27,7 @@ export const Row = styled.div`
     ${(props) => props.wrap && (`
     flex-wrap: wrap;
     `)}
+    align-items:center;
 `;
 
 export const Col = styled.div`
@@ -30,15 +35,12 @@ export const Col = styled.div`
     ${(props) => props.collapse && media[props.collapse](`
     display:none;
     `)};
-    margin-right: 40px;
     min-width:300px;
+    margin-right: ${(props) => props.marginRight}px;
+    ${(props) => props.marginRight && media['md'](`
+    margin-right:0px;
+    `)};
 `;
 
-export const CenteredContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-
-
+// 

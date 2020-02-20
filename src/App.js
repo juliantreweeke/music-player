@@ -47,9 +47,9 @@ export const App = () => {
 
     return (
         <Background>
-          <Layout margin="6">
+          <Layout margin="15">
             <Row>
-              <Col size="1"> 
+              <Col marginRight="100" size="1"> 
                 <SearchBar
                 handleInputChange={handleInputChange}
                 searchTracks={searchTracks} />
@@ -57,7 +57,7 @@ export const App = () => {
               <Col size="1" collapse="md"></Col>
             </Row>
             <Row wrap="true">
-              <Col size="1">  
+              <Col marginRight="100" size="1">  
                 <MusicPlayer data={data} playing={playing} togglePlay={() => dispatch(actions.togglePlay())} />
               </Col>
               <Col size="1" >

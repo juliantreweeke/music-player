@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import styled from "styled-components";
 import Tracklist from './Tracklist.js'; 
-import { CenteredContainer } from "../Grid";
 import { useDispatch } from "react-redux";
 import { actions } from '../../redux/ducks/index.js';
 
@@ -46,7 +45,6 @@ export const TracklistContainer = ({data, querySearched, tracks}) => {
     animateTitles();
   }
       return (
-        <CenteredContainer>
           <Card>
              {tracks && <Tracklist
               querySearched={querySearched}
@@ -54,6 +52,5 @@ export const TracklistContainer = ({data, querySearched, tracks}) => {
               selectTrack={selectTrack}
             />}
           </Card>
-        </CenteredContainer>
       )       
 }
