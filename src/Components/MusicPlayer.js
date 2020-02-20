@@ -15,7 +15,7 @@ export const Card = styled.div`
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
-const MusicPlayerContainer = ({ playing, togglePlay, data }) => {
+const MusicPlayerContainer = ({ playing, togglePlay, data, selectedTrack }) => {
   return (
       <Spring
         to={{
@@ -26,6 +26,7 @@ const MusicPlayerContainer = ({ playing, togglePlay, data }) => {
         children={MusicPlayer} 
         playing={playing}
         data={data}
+        selectedTrack={selectedTrack}
       />
   );
 };
@@ -38,6 +39,7 @@ const MusicPlayer = ({
   playing,
   togglePlay,
   data,
+  selectedTrack,
 }) => (
     <Card
       style={{
@@ -47,7 +49,7 @@ const MusicPlayer = ({
     >
       <Playbutton playing={playing} togglePlay={togglePlay} />
       {data && data[0] && <React.Fragment>
-        <TrackImage image={data[0].artwork_url} playing={playing} />
+        <TrackImage image={data[selectedTrack].artwork_url} playing={playing} />
       </React.Fragment>
       }
     </Card>

@@ -11,6 +11,11 @@ const defaultStyles = {
   maxWidth:"400px",
 };
 
+const selectedStyles = {
+  color:"white",
+  background:"black"
+}
+
 
 const HeadingContainer =  styled.div`
   align-items:center;
@@ -32,7 +37,7 @@ const TrackContainer = styled.div`
   height: 400px;
 `
 
-export default function Tracklist({querySearched, selectTrack, tracks}) {
+export default function Tracklist({querySearched, selectTrack, selectedTrack, tracks}) {
   return (
     <div>
         {querySearched && 
@@ -49,11 +54,14 @@ export default function Tracklist({querySearched, selectTrack, tracks}) {
             enter={{ opacity: 1, height: 75 }}
             leave={{ opacity: 0, height: 0 }}
             >
-            {tracks.map((track, index) => styles => (
-              <animated.li style={{ ...defaultStyles, ...styles }}>
+            {tracks.map((track, index) => styles => { 
+              const selected = index === selectedTrack;
+              const listStyles = {...defaultStyles, ...(selected && selectedStyles) }
+              return (
+              <animated.li style={{ ...listStyles, ...styles }}>
                 <p index={index} onClick={() => selectTrack(index)}>{index + 1} {track}</p>
               </animated.li>
-            ))}
+                )})}
             </Transition>
           </TrackContainer>
         
@@ -61,6 +69,10 @@ export default function Tracklist({querySearched, selectTrack, tracks}) {
   );
 };
 
+// {props.users.map(user => {
+//   const fullName = `${user.firstName} ${user.lastName}`;
+//   return <li className="userListItem"> {fullName} </li>;
+// })}
 
 
 

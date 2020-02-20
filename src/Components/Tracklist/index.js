@@ -12,7 +12,7 @@ export const Card = styled.div`
   border: 2px solid black;
 `;
 
-export const TracklistContainer = ({data, querySearched, tracks}) => {
+export const TracklistContainer = ({data, querySearched, selectedTrack, tracks}) => {
   
   const dispatch = useDispatch();
 
@@ -35,14 +35,8 @@ export const TracklistContainer = ({data, querySearched, tracks}) => {
   }, [animateTitles, data, dispatch]);
 
    const selectTrack = (i) => {
-    let trackOrder = data;
-    let temp = trackOrder[0];
-    trackOrder[0] = trackOrder[i];
-    trackOrder[i] = temp;
-    dispatch(actions.resetTracks());
+    dispatch(actions.setSelectedTrack(i));
     dispatch(actions.setPlay());
-    dispatch(actions.setData(trackOrder));
-    animateTitles();
   }
       return (
           <Card>
@@ -50,6 +44,7 @@ export const TracklistContainer = ({data, querySearched, tracks}) => {
               querySearched={querySearched}
               tracks={tracks}
               selectTrack={selectTrack}
+              selectedTrack={selectedTrack}
             />}
           </Card>
       )       

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import MusicPlayer from "./Components/MusicPlayer";
 import SearchBar from "./Components/SearchBar";
@@ -21,6 +21,7 @@ export const App = () => {
   const query = useSelector(state => state.query);
   const querySearched = useSelector(state => state.querySearched);
   const tracks = useSelector(state => state.tracks);
+  const selectedTrack = useSelector(state => state.selectedTrack);
   const dispatch = useDispatch();
 
   const searchTracks = () => {
@@ -34,6 +35,7 @@ export const App = () => {
       }
       response.json().then(data => {
         if (data) {
+          dispatch(actions.resetSelectedTrack());
           dispatch(actions.setData(data));
           dispatch(actions.setQuerySearched());
         }
@@ -58,10 +60,10 @@ export const App = () => {
             </Row>
             <Row wrap="true">
               <Col marginRight="100" size="1">  
-                <MusicPlayer data={data} playing={playing} togglePlay={() => dispatch(actions.togglePlay())} />
+                <MusicPlayer data={data} playing={playing} selectedTrack={selectedTrack} togglePlay={() => dispatch(actions.togglePlay())} />
               </Col>
               <Col size="1" >
-                <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} />
+                <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} selectedTrack={selectedTrack} />
               </Col> 
             </Row>
           </Layout>
