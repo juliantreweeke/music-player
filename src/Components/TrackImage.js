@@ -32,15 +32,13 @@ const Imagecard = ({
   containerWidth,
   left,
   image,
-  paddingBottom,
-  containerPaddingBottom
+  paddingBottom
 }) => (
       <div
         style={{
           width:containerWidth,
           display:'flex',
-          justifyContent: 'center',
-          paddingBottom:containerPaddingBottom
+          justifyContent: 'center'
         }}
       >
         <Image
@@ -71,6 +69,8 @@ export const TrackImage = ({playing, image}) => {
   useMountEffect(tick)
 
     const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
+    // const imageUrlEdit = DEFAULT_IMAGE_URL;
+
 
     return (
       <Spring
@@ -80,7 +80,6 @@ export const TrackImage = ({playing, image}) => {
           color: playing ? "#247BA0" : "#70C1B3",
           scale: playing ? 2 : 1,
           width: playing ? "100%" : "80%",
-          containerPaddingBottom: playing ? "0px" : "100px",
           containerWidth: playing ? "60%" : "100%",
           margin: playing ? 0 : 0,
           height: playing ? "0%" : "80%",

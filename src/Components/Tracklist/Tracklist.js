@@ -16,7 +16,6 @@ const selectedStyles = {
   background:"black"
 }
 
-
 const HeadingContainer =  styled.div`
   align-items:center;
   color:black;
@@ -68,12 +67,6 @@ export default function Tracklist({querySearched, selectTrack, selectedTrack, tr
     </div>
   );
 };
-
-// {props.users.map(user => {
-//   const fullName = `${user.firstName} ${user.lastName}`;
-//   return <li className="userListItem"> {fullName} </li>;
-// })}
-
 
 
 

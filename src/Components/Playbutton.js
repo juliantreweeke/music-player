@@ -6,7 +6,7 @@ const PLAY = "M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28";
 
 const Shape = ({ rotation, togglePlay, color, shape, y, x }) => (
     <svg version="1.1" viewBox={`-58 ${x} 150 160`}
-      style={{width:"100%", position:"absolute", zIndex:"5"}}
+      style={{width:"100%",height:"140%", position:"absolute", zIndex:"5"}}
     >
       <g
         style={{
@@ -35,7 +35,7 @@ const Playbutton = ({
         color: playing ? "#79D9C9" : "#70C1B3",
         scale: playing ? 2 : 1,
         shape: playing ? PAUSE : PLAY,
-        x: playing ? -65 : -120,
+        x: playing ? -65 : -147,
         rotation: playing ? "0" : "360"
       }}
       togglePlay={togglePlay}
