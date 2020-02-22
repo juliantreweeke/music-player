@@ -1,20 +1,16 @@
 import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components/macro'
 import { Transition, animated } from "react-spring";
 
-const defaultStyles = {
-  color: "#000000",
-  fontSize: "1em",
-  listStyle: "none",
-  overflow: "hidden",
-  margin:"12px",
-  maxWidth:"400px",
-};
-
-const selectedStyles = {
-  color:"white",
-  background:"black"
-}
+const listStyles = `
+  color:#000000;
+  font-size:1em;
+  list-style:none;
+  overflow:hidden;
+  margin:12px;
+  max-width:400px;
+`
+const selectedStyles = `color:#FFFFFF; background:black`
 
 const HeadingContainer =  styled.div`
   align-items:center;
@@ -30,7 +26,6 @@ const HeadingContainer =  styled.div`
     margin-top:0px;
   }
 `
-
 const TrackContainer = styled.div`
   overflow:auto;
   height: 400px;
@@ -54,16 +49,16 @@ export default function Tracklist({querySearched, selectTrack, selectedTrack, tr
             leave={{ opacity: 0, height: 0 }}
             >
             {tracks.map((track, index) => styles => { 
-              const selected = index === selectedTrack;
-              const listStyles = {...defaultStyles, ...(selected && selectedStyles) }
+              const isTrackSelected = index === selectedTrack;
               return (
-              <animated.li style={{ ...listStyles, ...styles }}>
+              <animated.li style={{ ...styles }} 
+                css={`${listStyles};${isTrackSelected && selectedStyles};`}
+              >
                 <p index={index} onClick={() => selectTrack(index)}>{index + 1} {track}</p>
               </animated.li>
                 )})}
             </Transition>
           </TrackContainer>
-        
     </div>
   );
 };

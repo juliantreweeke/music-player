@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components/macro'
 import { Spring } from "react-spring";
 import Playbutton from "./Playbutton";
 import { NavigationButtons } from "./NavigationButtons";
@@ -51,16 +51,15 @@ const MusicPlayer = ({
 }) => (
   <OuterCard>
     <Card
-      style={{
-        color,
-        transform: `rotate(${rotation})`
-      }}
-    ><Playbutton playing={playing} togglePlay={togglePlay} /> 
-      {data && data[0] && <React.Fragment>
+      css={`color:${color}; transform:rotate(${rotation})`}
+    >
+      <Playbutton playing={playing} togglePlay={togglePlay} /> 
+      {data && data[0] && 
+      <React.Fragment>
         <TrackImage image={data[selectedTrack].artwork_url} playing={playing} />
       </React.Fragment>
       }
     </Card>
-    <NavigationButtons />
+    <NavigationButtons data={data} selectedTrack={selectedTrack} />
     </OuterCard>
   );

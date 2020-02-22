@@ -3,24 +3,12 @@ import { Spring } from "react-spring";
 import styled from "styled-components";
 import { DEFAULT_IMAGE_URL } from '../constants';
 
-// const Image = styled.img`
-//   position: absolute;
-//   background: black;
-//   z-index: -1;
-// `;
-
 const Image = styled.div`
   background: black;
   background-image: url(${props => props.image});
   background-size: cover;
   z-index:-1;
 `;
-
-
-
-
- // background-image: url(${props => props.image});
-//  background-size: cover;
 
 const Imagecard = ({
   rotation,
@@ -69,8 +57,6 @@ export const TrackImage = ({playing, image}) => {
   useMountEffect(tick)
 
     const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
-    // const imageUrlEdit = DEFAULT_IMAGE_URL;
-
 
     return (
       <Spring

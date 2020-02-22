@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import  SVG  from './SVG'
 
-const Container= styled.div `
+const Container= styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ const Searchbox = styled.div`
   transition: width 2s;
 `;
 
-const SearchInput = styled.input `
+const SearchInput = styled.input`
   float:left;
   background:none;
   border:none;
@@ -37,7 +37,7 @@ const SearchInput = styled.input `
   text-indent: 2em;
 `
 
-const SearchButton = styled.a `
+const SearchButton = styled.a`
   float:right;
   background: black;
   height:60px;

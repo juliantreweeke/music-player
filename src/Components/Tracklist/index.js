@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Tracklist from './Tracklist.js'; 
 import { useDispatch } from "react-redux";
 import { actions } from '../../redux/ducks/index.js';
+import { selectTrack } from '../../redux/commonActions';
 
 export const Card = styled.div`
   min-width:80%;
@@ -34,10 +35,6 @@ export const TracklistContainer = ({data, querySearched, selectedTrack, tracks})
     initTrackList()
   }, [animateTitles, data, dispatch]);
 
-   const selectTrack = (i) => {
-    dispatch(actions.setSelectedTrack(i));
-    dispatch(actions.setPlay());
-  }
       return (
           <Card>
              {tracks && <Tracklist

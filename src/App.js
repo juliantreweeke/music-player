@@ -60,7 +60,7 @@ export const App = () => {
             </Row>
             <Row wrap="true">
               <Col marginRight="100" size="1">  
-                <MusicPlayer data={data} playing={playing} selectedTrack={selectedTrack} togglePlay={() => dispatch(actions.togglePlay())} />
+                <MusicPlayer data={data} playing={playing} selectedTrack={selectedTrack} togglePlay={() => dispatch(actions.togglePlay())}/>
               </Col>
               <Col size="1" >
                 <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} selectedTrack={selectedTrack} />
