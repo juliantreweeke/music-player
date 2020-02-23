@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Spring } from "react-spring";
+import {Spring} from 'react-spring/renderprops';
 import styled from "styled-components";
 import { DEFAULT_IMAGE_URL } from '../constants';
 
@@ -9,41 +9,6 @@ const Image = styled.div`
   background-size: cover;
   z-index:-1;
 `;
-
-const Imagecard = ({
-  rotation,
-  borderRadius,
-  top,
-  height,
-  margin,
-  width,
-  containerWidth,
-  left,
-  image,
-  paddingBottom
-}) => (
-      <div
-        style={{
-          width:containerWidth,
-          display:'flex',
-          justifyContent: 'center'
-        }}
-      >
-        <Image
-          image={image}
-          style={{
-            height,
-            paddingBottom: `${paddingBottom}%`,
-            width,
-            borderRadius: `${borderRadius}%`,
-            top: `${top}%`,
-            margin: `${margin}%`,
-            left: `${left}%`,
-            transform: `rotate(${rotation}deg)`
-          }}
-        />
-      </div>
-  );
 
 export const TrackImage = ({playing, image}) => {
   let [degree, setDegree] = useState(0);
@@ -60,10 +25,8 @@ export const TrackImage = ({playing, image}) => {
 
     return (
       <Spring
-        from={{ color: "black" }}
         to={{
           borderRadius: playing ? "50" : "0",
-          color: playing ? "#247BA0" : "#70C1B3",
           scale: playing ? 2 : 1,
           width: playing ? "100%" : "80%",
           containerWidth: playing ? "60%" : "100%",
@@ -73,9 +36,32 @@ export const TrackImage = ({playing, image}) => {
           paddingBottom: playing ? "100" : "80"
         }}
         image={imageUrlEdit}
-        children={Imagecard} 
         playing={playing}
-      />
+      >
+      {props => ( 
+          <div
+          style={{
+            width:props.containerWidth,
+            display:'flex',
+            justifyContent: 'center'
+          }}
+          >
+          <Image
+            image={image}
+            style={{
+              height:props.height,
+              paddingBottom: `${props.paddingBottom}%`,
+              width:props.width,
+              borderRadius: `${props.borderRadius}%`,
+              top: `${props.top}%`,
+              margin: `${props.margin}%`,
+              left: `${props.left}%`,
+              transform: `rotate(${props.rotation}deg)`
+            }}
+          />
+          </div>
+      )}
+      </Spring>
     );
 }
 

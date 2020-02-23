@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components/macro'
-import { Transition, animated } from "react-spring";
+import { Transition } from 'react-spring/renderprops';
 
 const listStyles = `
   color:#000000;
@@ -42,28 +42,24 @@ export default function Tracklist({querySearched, selectTrack, selectedTrack, tr
           }
           <TrackContainer>
             <Transition
-            native
-            keys={tracks}
-            from={{ opacity: 0, height: 0 }}
-            enter={{ opacity: 1, height: 75 }}
-            leave={{ opacity: 0, height: 0 }}
+              items={tracks}
+              keys={item => item}
+              from={{ opacity: 0, height: 0 }}
+              enter={{ opacity: 1, height: 75 }}
+              leave={{ opacity: 0, height: 0 }}
             >
-            {tracks.map((track, index) => styles => { 
-              const isTrackSelected = index === selectedTrack;
-              return (
-              <animated.li style={{ ...styles }} 
-                css={`${listStyles};${isTrackSelected && selectedStyles};`}
-              >
-                <p index={index} onClick={() => selectTrack(index)}>{index + 1} {track}</p>
-              </animated.li>
-                )})}
+              {(item, state, index) => props => {
+                const isTrackSelected = index === selectedTrack;
+                return (
+                  <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}>
+                    <p index={index} onClick={() => selectTrack(index)}>{index + 1} {item}</p>
+                  </li>
+              )}}
             </Transition>
           </TrackContainer>
     </div>
   );
 };
-
-
 
 
 

@@ -29,12 +29,12 @@ const SearchInput = styled.input`
   padding:0;
   height:60px;
   line-height:60px
-  width:0px;
   transition: width 0.8s;
   ${Searchbox}:hover & {
     width:200px;
   }
   text-indent: 2em;
+  width:0px;
 `
 
 const SearchButton = styled.a`

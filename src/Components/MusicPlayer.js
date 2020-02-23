@@ -1,6 +1,6 @@
 import React from "react";
-import styled from 'styled-components/macro'
-import { Spring } from "react-spring";
+import styled from 'styled-components/macro';
+import {Spring} from 'react-spring/renderprops';
 import Playbutton from "./Playbutton";
 import { NavigationButtons } from "./NavigationButtons";
 import { TrackImage } from "./TrackImage";
@@ -21,45 +21,36 @@ const Card = styled.div`
   justify-content:center;
   align-items:center;
   height: 1000px;
+  transform:rotate(0deg);
 `;
 
 const MusicPlayerContainer = ({ playing, togglePlay, data, selectedTrack }) => {
+
   return (
       <Spring
         to={{
-          rotation: playing ? "0deg" : "0deg",
           height: playing ? "0%" : "50%"
         }}
         togglePlay={togglePlay} 
-        children={MusicPlayer} 
         playing={playing}
         data={data}
         selectedTrack={selectedTrack}
-      />
+      > 
+      {props => ( 
+        <OuterCard>
+          <Card>
+            <Playbutton playing={playing} togglePlay={togglePlay} /> 
+            {data && data[0] && 
+            <React.Fragment>
+              <TrackImage image={data[selectedTrack].artwork_url} playing={playing} />
+            </React.Fragment>
+            }
+          </Card>
+          <NavigationButtons data={data} selectedTrack={selectedTrack} />
+        </OuterCard>
+      )}
+      </Spring>
   );
 };
 
 export default MusicPlayerContainer;
-
-const MusicPlayer = ({
-  color,
-  rotation,
-  playing,
-  togglePlay,
-  data,
-  selectedTrack,
-}) => (
-  <OuterCard>
-    <Card
-      css={`color:${color}; transform:rotate(${rotation})`}
-    >
-      <Playbutton playing={playing} togglePlay={togglePlay} /> 
-      {data && data[0] && 
-      <React.Fragment>
-        <TrackImage image={data[selectedTrack].artwork_url} playing={playing} />
-      </React.Fragment>
-      }
-    </Card>
-    <NavigationButtons data={data} selectedTrack={selectedTrack} />
-    </OuterCard>
-  );
