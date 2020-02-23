@@ -31,7 +31,7 @@ const TrackContainer = styled.div`
   height: 400px;
 `
 
-export default function Tracklist({querySearched, selectTrack, selectedTrack, tracks}) {
+export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) => {
   return (
     <div>
         {querySearched && 

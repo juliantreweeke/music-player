@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import styled from "styled-components";
-import Tracklist from './Tracklist.js'; 
+import { Tracklist } from './Tracklist.js'; 
 import { useDispatch } from "react-redux";
 import { actions } from '../../redux/ducks/index.js';
 import { selectTrack } from '../../redux/commonActions';

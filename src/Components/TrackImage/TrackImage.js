@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {Spring} from 'react-spring/renderprops';
 import styled from "styled-components";
-import { DEFAULT_IMAGE_URL } from '../constants';
 
 const Image = styled.div`
   background: black;
@@ -10,18 +9,7 @@ const Image = styled.div`
   z-index:-1;
 `;
 
-export const TrackImage = ({playing, image}) => {
-  let [degree, setDegree] = useState(0);
-
-  const tick = () => {
-  setInterval(() => setDegree(degree++ ) , 100)
-  }
-
-  const useMountEffect = (func) => useEffect(func, [])
-
-  useMountEffect(tick)
-
-    const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
+export const TrackImage = ({degree, playing, image}) => {
 
     return (
       <Spring
@@ -35,7 +23,7 @@ export const TrackImage = ({playing, image}) => {
           rotation: playing ? `${degree}` : "0",
           paddingBottom: playing ? "100" : "80"
         }}
-        image={imageUrlEdit}
+        image={image}
         playing={playing}
       >
       {props => ( 

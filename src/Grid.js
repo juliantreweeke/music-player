@@ -41,6 +41,3 @@ export const Col = styled.div`
     margin-right:0px;
     `)};
 `;
-
-
-// 
