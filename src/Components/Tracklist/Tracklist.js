@@ -7,17 +7,35 @@ const listStyles = `
   font-size:1em;
   list-style:none;
   overflow:hidden;
-  margin:12px;
-  max-width:400px;
+  margin:16px;
+  display:flex;
+  align-items:center;
+  & div {
+    padding:16px;
+    display:inline-flex;
+  }
 `
-const selectedStyles = `color:#FFFFFF; background:black`
+const numberStyles = `
+  padding-right:8px;
+`
+
+const selectedStyles = `
+  color:#FFFFFF; 
+  background:black;
+  border-radius:12px;
+`
 
 const HeadingContainer =  styled.div`
   align-items:center;
   color:black;
-  display:inline-flex;
   margin-top:24px;
-  margin-left:24px;
+  width:100%;
+  border-bottom:black 1px solid;
+  & span {
+    margin-left:24px;
+    display:inline-flex;
+    align-items:center;
+  }
   & h2 {
     margin-top:0px;
   }
@@ -26,7 +44,8 @@ const HeadingContainer =  styled.div`
     margin-top:0px;
   }
 `
-const TrackContainer = styled.div`
+const TrackContainer = styled.ul`
+  padding:0px;
   overflow:auto;
   height: 400px;
 `
@@ -36,8 +55,10 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
     <div>
         {querySearched && 
         <HeadingContainer>
-          <h2>{querySearched}</h2>
-          <p>{tracks.length} Search Results</p>
+          <span>
+            <h2>{querySearched}</h2>
+            <p>{tracks.length} Search Results</p>
+          </span>  
         </HeadingContainer>
           }
           <TrackContainer>
@@ -52,7 +73,7 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
                 const isTrackSelected = index === selectedTrack;
                 return (
                   <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}>
-                    <p index={index} onClick={() => selectTrack(index)}>{index + 1} {item}</p>
+                    <div index={index} onClick={() => selectTrack(index)}><p css={numberStyles}>{index + 1}</p><p>{item}</p></div>
                   </li>
               )}}
             </Transition>
