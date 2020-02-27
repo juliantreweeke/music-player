@@ -29,7 +29,7 @@ export const App = ({data,
                 handleInputChange={handleInputChange}
                 searchTracks={searchTracks} />
               </Col>
-              <Col size="1" collapse="md"></Col>
+              <Col size="1" collapse="lg"></Col>
             </Row>
             <Row wrap="true">
               <Col marginRight="100" size="1">  

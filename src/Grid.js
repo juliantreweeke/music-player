@@ -7,7 +7,12 @@ const media = {
         }
     `,
     md: (styles) => `
-        @media only screen and (max-width: 772px) {
+        @media only screen and (max-width: 715px) {
+            ${styles}
+        }
+    `, 
+    lg: (styles) => `
+        @media only screen and (max-width: 999px) {
             ${styles}
         }
     `, 
@@ -16,9 +21,9 @@ const media = {
 export const Layout = styled.div`
     margin-left:${(props) => props.margin}vw;
     margin-right:${(props) => props.margin}vw;
-    @media only screen and (max-width: 772px) {
-    margin-left:0px;
-    margin-right:0px;
+    @media only screen and (max-width: 715px) {
+    margin-left:10vw;
+    margin-right:10vw;
     }
 `
 
@@ -32,12 +37,13 @@ export const Row = styled.div`
 
 export const Col = styled.div`
     flex: ${(props) => props.size};
+    width:50%;
     ${(props) => props.collapse && media[props.collapse](`
     display:none;
     `)};
-    min-width:300px;
     margin-right: ${(props) => props.marginRight}px;
-    ${(props) => props.marginRight && media['md'](`
+    ${(props) => props.marginRight && media['lg'](`
     margin-right:0px;
     `)};
+    min-width:300px;
 `;

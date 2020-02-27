@@ -24,8 +24,13 @@ export const actions = {
  };
 
  const initialState = {
-    audioElement:new Audio(), data: null, playing: false, query: '', querySearched:'', tracks: [],
-    selectedTrack: 0
+    audioElement:new Audio(), 
+    data: null, 
+    playing: false, 
+    query: '', 
+    querySearched:'', 
+    selectedTrack: 0, 
+    tracks: []
   };
 
 export const rootReducer = (state = initialState, action) => {
