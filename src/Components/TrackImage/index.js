@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { TrackImage } from './TrackImage';
+import { useMountEffect } from '../../utils';
 import { DEFAULT_IMAGE_URL } from '../../constants';
 
 export const TrackImageContainer = ({playing, image}) => {
@@ -8,8 +9,6 @@ export const TrackImageContainer = ({playing, image}) => {
   const tick = () => {
   setInterval(() => setDegree(degree++ ) , 100)
   }
-
-  const useMountEffect = (func) => useEffect(func, [])
 
   useMountEffect(tick)
 

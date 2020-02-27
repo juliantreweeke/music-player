@@ -24,7 +24,7 @@ export const actions = {
  };
 
  const initialState = {
-    data: null, playing: false, query: '', querySearched:'', tracks: [],
+    audioElement:new Audio(), data: null, playing: false, query: '', querySearched:'', tracks: [],
     selectedTrack: 0
   };
 
