@@ -7,12 +7,12 @@ const media = {
         }
     `,
     md: (styles) => `
-        @media only screen and (max-width: 715px) {
+        @media only screen and (max-width: 749px) {
             ${styles}
         }
     `, 
     lg: (styles) => `
-        @media only screen and (max-width: 999px) {
+        @media only screen and (max-width: 1028px) {
             ${styles}
         }
     `, 
@@ -21,12 +21,11 @@ const media = {
 export const Layout = styled.div`
     margin-left:${(props) => props.margin}vw;
     margin-right:${(props) => props.margin}vw;
-    @media only screen and (max-width: 715px) {
-    margin-left:10vw;
-    margin-right:10vw;
-    }
+    ${media['lg'](`
+        margin-left:2vw;
+        margin-right:2vw;
+    `)};
 `
-
 export const Row = styled.div`
     display:flex;
     ${(props) => props.wrap && (`
@@ -37,13 +36,10 @@ export const Row = styled.div`
 
 export const Col = styled.div`
     flex: ${(props) => props.size};
-    width:50%;
     ${(props) => props.collapse && media[props.collapse](`
     display:none;
     `)};
-    margin-right: ${(props) => props.marginRight}px;
-    ${(props) => props.marginRight && media['lg'](`
-    margin-right:0px;
-    `)};
+    margin-left: ${(props) => props.marginLeftRight}px;
+    margin-right: ${(props) => props.marginLeftRight}px;
     min-width:300px;
 `;

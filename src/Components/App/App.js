@@ -24,18 +24,18 @@ export const App = ({data,
         <Background>
           <Layout margin="15">
             <Row>
-              <Col marginRight="100" size="1"> 
+              <Col marginLeftRight="30" size="1"> 
                 <SearchBar
                 handleInputChange={handleInputChange}
                 searchTracks={searchTracks} />
               </Col>
-              <Col size="1" collapse="lg"></Col>
+              <Col size="1" collapse="md"></Col>
             </Row>
             <Row wrap="true">
-              <Col marginRight="100" size="1">  
+              <Col marginLeftRight="30" size="1">  
                 <MusicPlayer data={data} playing={playing} selectedTrack={selectedTrack} togglePlay={togglePlay}/>
               </Col>
-              <Col size="1" >
+              <Col marginLeftRight="30" size="1" >
                 <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} selectedTrack={selectedTrack} />
               </Col> 
             </Row>
