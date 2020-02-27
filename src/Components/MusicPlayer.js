@@ -4,6 +4,7 @@ import {Spring} from 'react-spring/renderprops';
 import Playbutton from "./Playbutton";
 import { NavigationButtons } from "./NavigationButtons";
 import { TrackImageContainer } from "./TrackImage/index.js";
+import { media } from "../Grid";
 
 const OuterCard = styled.div`
   display:flex;
@@ -13,6 +14,10 @@ const OuterCard = styled.div`
   border-radius: 8px;
   background: #1b1d1e;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  ${media['md'](`
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  `)};
 `;
 
 const Card = styled.div`

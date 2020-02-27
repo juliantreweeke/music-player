@@ -7,6 +7,7 @@ const Image = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
   z-index:-1;
+  max-width:320;
 `;
 
 export const TrackImage = ({degree, playing, image}) => {

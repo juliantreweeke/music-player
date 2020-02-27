@@ -5,13 +5,6 @@ import { useDispatch } from "react-redux";
 import { actions } from '../../redux/ducks/index.js';
 import { selectTrack } from '../../redux/commonActions';
 
-export const Card = styled.div`
-  min-width:80%;
-  height: 500px;
-  border-radius: 8px;
-  background: transparent;
-  border: 2px solid black;
-`;
 
 export const TracklistContainer = ({data, querySearched, selectedTrack, tracks}) => {
   
@@ -35,14 +28,11 @@ export const TracklistContainer = ({data, querySearched, selectedTrack, tracks})
     initTrackList()
   }, [animateTitles, data, dispatch]);
 
-      return (
-          <Card>
-             {tracks && <Tracklist
+      return tracks && 
+            <Tracklist
               querySearched={querySearched}
               tracks={tracks}
               selectTrack={selectTrack}
               selectedTrack={selectedTrack}
-            />}
-          </Card>
-      )       
+            />
 }

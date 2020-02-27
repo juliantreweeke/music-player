@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import SVG from './SVG'
+import { media } from "../../Grid";
 
 const Container= styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom:150px;
+  margin-bottom:160px;
+  ${media['md'](`
+  margin-bottom:80px;
+  `)};
 `;
 const Searchbox = styled.div`
   position:relative;
@@ -16,6 +20,7 @@ const Searchbox = styled.div`
   border-radius:40px;
   cursor:pointer;
   transition: width 2s;
+  z-index:20;
 `;
 
 const SearchInput = styled.input`

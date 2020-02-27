@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const media = {
+export const media = {
     xs: (styles) => `
         @media only screen and (max-width: 480px) {
             ${styles}
@@ -16,6 +16,11 @@ const media = {
             ${styles}
         }
     `, 
+    xlg: (styles) => `
+        @media only screen and (min-width: 1028px) {
+            ${styles}
+        }
+    `, 
 }
 
 export const Layout = styled.div`
@@ -24,6 +29,10 @@ export const Layout = styled.div`
     ${media['lg'](`
         margin-left:2vw;
         margin-right:2vw;
+    `)};
+    ${media['xs'](`
+        margin-left:0px;
+        margin-right:0px;
     `)};
 `
 export const Row = styled.div`

@@ -1,6 +1,19 @@
 import React from "react";
 import styled from 'styled-components/macro'
 import { Transition } from 'react-spring/renderprops';
+import { media } from "../../Grid";
+
+const Card = styled.div`
+  min-width:80%;
+  height: 500px;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid black;
+  ${media['md'](`
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  `)};
+`;
 
 const listStyles = `
   color:#000000;
@@ -52,7 +65,7 @@ const TrackContainer = styled.ul`
 
 export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) => {
   return (
-    <div>
+    <Card>
         {querySearched && 
         <HeadingContainer>
           <span>
@@ -78,7 +91,7 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
               )}}
             </Transition>
           </TrackContainer>
-    </div>
+    </Card>
   );
 };
 
