@@ -9,6 +9,7 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
   background: #d2d8db;
+  overflow-x: scroll;
 `;
 
 export const App = ({data,

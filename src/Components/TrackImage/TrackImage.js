@@ -15,14 +15,12 @@ export const TrackImage = ({degree, playing, image}) => {
     return (
       <Spring
         to={{
-          borderRadius: playing ? "50" : "0",
-          scale: playing ? 2 : 1,
-          width: playing ? "100%" : "80%",
           containerWidth: playing ? "60%" : "100%",
+          borderRadius: playing ? "50%" : "0%",
+          width: playing ? "100%" : "70%",
           margin: playing ? 0 : 0,
-          height: playing ? "0%" : "80%",
+          paddingBottom: playing ? "100%" : "70%",
           rotation: playing ? `${degree}` : "0",
-          paddingBottom: playing ? "100" : "80"
         }}
         image={image}
         playing={playing}
@@ -38,13 +36,10 @@ export const TrackImage = ({degree, playing, image}) => {
           <Image
             image={image}
             style={{
-              height:props.height,
-              paddingBottom: `${props.paddingBottom}%`,
+              borderRadius:props.borderRadius,
               width:props.width,
-              borderRadius: `${props.borderRadius}%`,
-              top: `${props.top}%`,
-              margin: `${props.margin}%`,
-              left: `${props.left}%`,
+              margin:props.margin,
+              paddingBottom:props.paddingBottom,   
               transform: `rotate(${props.rotation}deg)`
             }}
           />

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const media = {
-    xs: (styles) => `
+    sm: (styles) => `
         @media only screen and (max-width: 480px) {
             ${styles}
         }
@@ -30,7 +30,11 @@ export const Layout = styled.div`
         margin-left:2vw;
         margin-right:2vw;
     `)};
-    ${media['xs'](`
+    ${media['md'](`
+        margin-left:10vw;
+        margin-right:10vw;
+    `)};
+    ${media['sm'](`
         margin-left:0px;
         margin-right:0px;
     `)};
@@ -50,5 +54,9 @@ export const Col = styled.div`
     `)};
     margin-left: ${(props) => props.marginLeftRight}px;
     margin-right: ${(props) => props.marginLeftRight}px;
+    ${media['sm'](`
+        margin-left:0px;
+        margin-right:0px;
+    `)};
     min-width:300px;
 `;

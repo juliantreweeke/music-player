@@ -18,7 +18,16 @@ export const AppContainer = () => {
   const dispatch = useDispatch();
 
   const toggleAudioElement = useCallback(() => {
-    playing ? audioElement.play() : audioElement.pause();
+    if(playing) {
+      const playPromise = audioElement.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          audioElement.pause();
+        });
+      }
+    } else {
+      audioElement.pause();
+    }
   },[audioElement, playing]);
 
   useEffect(() => {
@@ -31,7 +40,7 @@ export const AppContainer = () => {
   useEffect(() => {
     const watchSelectedTrack = () => {
       if(!audioElement || !data) return;
-      audioElement.src = data[selectedTrack].stream_url;
+      audioElement.src = data[selectedTrack] && data[selectedTrack].stream_url;
       toggleAudioElement();
     };
     watchSelectedTrack()

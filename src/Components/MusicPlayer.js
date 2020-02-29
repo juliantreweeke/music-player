@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components/macro';
 import {Spring} from 'react-spring/renderprops';
 import Playbutton from "./Playbutton";
-import { NavigationButtons } from "./NavigationButtons";
+import { NavigationButtons } from "./NavigationButtons/NavigationButtons";
 import { TrackImageContainer } from "./TrackImage/index.js";
 import { media } from "../Grid";
 
@@ -17,6 +17,9 @@ const OuterCard = styled.div`
   ${media['md'](`
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
+  `)};
+  ${media['sm'](`
+  border-radius:0px;
   `)};
 `;
 

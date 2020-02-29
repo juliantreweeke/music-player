@@ -13,6 +13,9 @@ const Card = styled.div`
   border-top-left-radius:0px;
   border-top-right-radius:0px;
   `)};
+  ${media['sm'](`
+  border-radius:0px;
+  `)};
 `;
 
 const listStyles = `
@@ -27,9 +30,6 @@ const listStyles = `
     padding:16px;
     display:inline-flex;
   }
-`
-const numberStyles = `
-  padding-right:8px;
 `
 
 const selectedStyles = `
@@ -86,7 +86,7 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
                 const isTrackSelected = index === selectedTrack;
                 return (
                   <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}>
-                    <div index={index} onClick={() => selectTrack(index)}><p css={numberStyles}>{index + 1}</p><p>{item}</p></div>
+                    <div index={index} onClick={() => selectTrack(index)}><p>{item}</p></div>
                   </li>
               )}}
             </Transition>
