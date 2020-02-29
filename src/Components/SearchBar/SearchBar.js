@@ -65,8 +65,11 @@ const SearchBar = ({
                 <SearchInput
                     placeholder="Search for..."
                     onChange={handleInputChange}
+                    onKeyPress={event => { event.key === 'Enter' && searchTracks()}}
                 /> 
-                <SearchButton onClick={searchTracks}><SVG fill="rgba(112, 193, 179, 1)" /></SearchButton>
+                <SearchButton onClick={searchTracks}>
+                  <SVG fill="rgba(112, 193, 179, 1)" />
+                </SearchButton>
             </Searchbox>
         </Container>
     );

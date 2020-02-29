@@ -16,11 +16,6 @@ export const media = {
             ${styles}
         }
     `, 
-    xlg: (styles) => `
-        @media only screen and (min-width: 1028px) {
-            ${styles}
-        }
-    `, 
 }
 
 export const Layout = styled.div`
@@ -31,8 +26,8 @@ export const Layout = styled.div`
         margin-right:2vw;
     `)};
     ${media['md'](`
-        margin-left:10vw;
-        margin-right:10vw;
+        margin-left:15vw;
+        margin-right:15vw;
     `)};
     ${media['sm'](`
         margin-left:0px;
