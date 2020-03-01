@@ -56,16 +56,32 @@ export const AppContainer = () => {
       }
       response.json().then( data => {
         if (data) {
-          dispatch(actions.resetSelectedTrack());
           const updatedData = data.map((trackData)=>{
             return {...trackData, stream_url:`${trackData.stream_url}?client_id=${SOUNDCLOUD_API_KEY}`}
           });
-          dispatch(actions.setData(updatedData));
-          dispatch(actions.setQuerySearched());
+          setupPlayer(updatedData);   
         }
       });
     });
   }
+
+  const setupPlayer = async (data) => {
+    await dispatch(actions.setData(data));
+    await dispatch(actions.resetSelectedTrack());
+    await dispatch(actions.setQuerySearched());
+    await dispatch(actions.resetTracks());
+    await animateTitles(data);
+  }
+
+  const animateTitles = (data) => {
+    let timeOutLength = 100;
+    if (data) {
+      data.forEach(track => {
+        setTimeout(() => dispatch(actions.addTrack(track.title), timeOutLength));
+        timeOutLength += 200;
+      })
+    }
+  };
 
   const handleInputChange = (event) => {
     dispatch(actions.setQuery(event.target.value));

@@ -20,14 +20,16 @@ const Card = styled.div`
 
 const listStyles = `
   color:#000000;
+  background:transparent;
   font-size:1em;
   list-style:none;
   overflow:hidden;
-  margin:16px;
+  margin:8px;
   display:flex;
   align-items:center;
-  & div {
-    padding:16px;
+  transition: background 0.5s ease;
+  & p {
+    padding-left:16px;
     display:inline-flex;
   }
 `
@@ -85,8 +87,10 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
               {(item, state, index) => props => {
                 const isTrackSelected = index === selectedTrack;
                 return (
-                  <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}>
-                    <div index={index} onClick={() => selectTrack(index)}><p>{item}</p></div>
+                  <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}
+                    onClick={() => selectTrack(index)}
+                  >
+                    <p>{item}</p>
                   </li>
               )}}
             </Transition>

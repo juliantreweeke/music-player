@@ -4,6 +4,7 @@ import {Spring} from 'react-spring/renderprops';
 import Playbutton from "./Playbutton";
 import { NavigationButtons } from "./NavigationButtons/NavigationButtons";
 import { TrackImageContainer } from "./TrackImage/index.js";
+import { DEFAULT_IMAGE_URL } from '../constants';
 import { media } from "../Grid";
 
 const OuterCard = styled.div`
@@ -34,6 +35,9 @@ const Card = styled.div`
 
 const MusicPlayerContainer = ({ playing, togglePlay, data, selectedTrack }) => {
 
+  const image = data && data[selectedTrack] && data[selectedTrack].artwork_url;
+  const imageUrlEdit = image ? image.replace("large", "t500x500") : DEFAULT_IMAGE_URL;
+
   return (
       <Spring
         to={{
@@ -50,7 +54,7 @@ const MusicPlayerContainer = ({ playing, togglePlay, data, selectedTrack }) => {
             <Playbutton playing={playing} togglePlay={togglePlay} /> 
             {data && data[0] && 
             <React.Fragment>
-              <TrackImageContainer image={data[selectedTrack].artwork_url} playing={playing} />
+              <TrackImageContainer image={imageUrlEdit} playing={playing} />
             </React.Fragment>
             }
           </Card>
