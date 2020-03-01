@@ -8,6 +8,7 @@ const Image = styled.div`
   background-size: cover;
   z-index:-1;
   max-width:320;
+  transition: background-image 0.5s ease;
 `;
 
 export const TrackImage = ({degree, playing, image}) => {

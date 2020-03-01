@@ -16,11 +16,12 @@ const Layout = styled.div`
 `;
 
 const BackButton = ({data, selectedTrack}) => {
+  
     const previousTrack = () => {
         if(selectedTrack === 0){
             selectTrack(data.length - 1)
           } else {
-            selectTrack(selectedTrack--)
+            selectTrack(selectedTrack -= 1 )
           }
     }
     return (
@@ -37,7 +38,7 @@ const NextButton = ({data,selectedTrack}) => {
         if(selectedTrack === data.length - 1){
           selectTrack(0)
         } else {
-          selectTrack(selectedTrack++)
+          selectTrack(selectedTrack += 1)
         }
     }
     return (
