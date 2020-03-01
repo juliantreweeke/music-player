@@ -28,9 +28,14 @@ const listStyles = `
   display:flex;
   align-items:center;
   transition: background 0.5s ease;
+  cursor:pointer;
   & p {
     padding-left:16px;
     display:inline-flex;
+  }
+  &:hover {
+    background: #c1c6c9;
+    border-radius:12px;
   }
 `
 
@@ -38,6 +43,9 @@ const selectedStyles = `
   color:#FFFFFF; 
   background:black;
   border-radius:12px;
+  &:hover {
+  background:black;
+  }
 `
 
 const HeadingContainer =  styled.div`
@@ -79,7 +87,7 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
           <TrackContainer>
             <Transition
               items={tracks}
-              keys={item => item}
+              keys={item => item.index}
               from={{ opacity: 0, height: 0 }}
               enter={{ opacity: 1, height: 75 }}
               leave={{ opacity: 0, height: 0 }}
@@ -87,12 +95,11 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
               {(item, state, index) => props => {
                 const isTrackSelected = index === selectedTrack;
                 return (
-                  item ?
                   <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}
                     onClick={() => selectTrack(index)}
                   >
-                    <p>{item}</p>
-                  </li> : null
+                    <p>{item.title}</p>
+                  </li>
               )}}
             </Transition>
           </TrackContainer>

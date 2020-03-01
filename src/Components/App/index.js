@@ -73,8 +73,8 @@ export const AppContainer = () => {
 
   const animateTitles = (data) => {
     let timeOutLength = 100;
-      data.forEach(track => {
-        setTimeout(() => dispatch(actions.addTrack(track.title), timeOutLength));
+      data.forEach((track, index) => {
+        setTimeout(() => dispatch(actions.addTrack({title:track.title, index}), timeOutLength));
         timeOutLength += 200;
       })
   };
