@@ -87,11 +87,12 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
               {(item, state, index) => props => {
                 const isTrackSelected = index === selectedTrack;
                 return (
+                  item ?
                   <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}
                     onClick={() => selectTrack(index)}
                   >
                     <p>{item}</p>
-                  </li>
+                  </li> : null
               )}}
             </Transition>
           </TrackContainer>

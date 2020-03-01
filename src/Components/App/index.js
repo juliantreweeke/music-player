@@ -10,7 +10,6 @@ export const AppContainer = () => {
   const audioElement = useSelector(state => state.audioElement);
   const data = useSelector(state => state.data);
   const playing = useSelector(state => state.playing);
-  const query = useSelector(state => state.query);
   const querySearched = useSelector(state => state.querySearched);
   const tracks = useSelector(state => state.tracks);
   const selectedTrack = useSelector(state => state.selectedTrack);
@@ -46,12 +45,11 @@ export const AppContainer = () => {
     watchSelectedTrack()
   }, [audioElement,data,selectedTrack, toggleAudioElement]);
 
-  const searchTracks = () => {
+  const searchTracks = (query) => {
     fetch(
       `https://api.soundcloud.com/tracks/?client_id=${SOUNDCLOUD_API_KEY}&q=${query}`
     ).then(response => {
       if (response.status !== 200) {
-        console.log(response.status);
         return;
       }
       response.json().then( data => {
@@ -59,41 +57,33 @@ export const AppContainer = () => {
           const updatedData = data.map((trackData)=>{
             return {...trackData, stream_url:`${trackData.stream_url}?client_id=${SOUNDCLOUD_API_KEY}`}
           });
-          setupPlayer(updatedData);   
+          setupPlayer(query, updatedData);   
         }
       });
     });
   }
 
-  const setupPlayer = async (data) => {
+  const setupPlayer = async (query, data) => {
     await dispatch(actions.setData(data));
     await dispatch(actions.resetSelectedTrack());
-    await dispatch(actions.setQuerySearched());
+    await dispatch(actions.setQuerySearched(query));
     await dispatch(actions.resetTracks());
     await animateTitles(data);
   }
 
   const animateTitles = (data) => {
     let timeOutLength = 100;
-    if (data) {
       data.forEach(track => {
         setTimeout(() => dispatch(actions.addTrack(track.title), timeOutLength));
         timeOutLength += 200;
       })
-    }
   };
-
-  const handleInputChange = (event) => {
-    dispatch(actions.setQuery(event.target.value));
-  }
 
   const togglePlay = () => dispatch(actions.togglePlay());
 
   return <App 
             data={data} 
             playing={playing} 
-            handleInputChange={handleInputChange}
-            query={query} 
             querySearched={querySearched} 
             tracks={tracks}
             searchTracks={searchTracks}

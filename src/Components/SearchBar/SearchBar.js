@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import SVG from './SVG'
 import { media } from "../../Grid";
@@ -56,18 +56,24 @@ const SearchButton = styled.a`
 `;
 
 const SearchBar = ({
-        handleInputChange,
         searchTracks
     }) => {
+
+    const searchInput = useRef();
+
+    const addQueryToSearch = () => {
+      searchTracks(searchInput.current.value);
+    }
+
     return (
         <Container>
             <Searchbox>
                 <SearchInput
+                    ref={searchInput}
                     placeholder="Search for..."
-                    onChange={handleInputChange}
-                    onKeyPress={event => { event.key === 'Enter' && searchTracks()}}
+                    onKeyPress={event => { event.key === 'Enter' && addQueryToSearch()}}
                 /> 
-                <SearchButton onClick={searchTracks}>
+                <SearchButton onClick={addQueryToSearch}>
                   <SVG fill="rgba(112, 193, 179, 1)" />
                 </SearchButton>
             </Searchbox>
