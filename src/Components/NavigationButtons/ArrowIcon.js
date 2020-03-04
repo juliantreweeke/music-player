@@ -1,22 +1,33 @@
 import React from "react";
-import styled from 'styled-components/macro'
+import styled, { useTheme } from 'styled-components/macro'
 
-const svgStyles = (data) => 
+const svgStyles = ({data, theme}) => 
     `z-index:10;
-    ${data && `cursor:pointer`}`;
+    ${data && `cursor:pointer`};
+    path {
+        fill:${data ? theme.btnColor : '#333738'};
+    };
+    &:hover path {
+        fill:${data ? 'white' : '#333738'};
+    };
+    path {
+        transition:fill 0.5s ease;
+    }
+    
+`
 
 export const ArrowIcon = ({ data, handleClick, rotate180}) => {
-    const color = data ? '#70C1B3' : '#333738';
+    const theme = useTheme();
     return (
         <svg 
-            css={svgStyles(data)} 
+            css={svgStyles({data, theme})} 
             onClick={handleClick} 
             transform={rotate180 && 'rotate(180)'} 
             width="32" height="32" 
             viewBox="0 0 16 16"
-        >
-            <path fill={color} d="M2 1v14l10-7z"></path>
-            <path fill={color} d="M12 1h2v14h-2v-14z"></path>
+        >   
+            <path d="M2 1v14l10-7z"></path>
+            <path d="M12 1h2v14h-2v-14z"></path>
         </svg>
     );
 } 

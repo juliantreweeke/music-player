@@ -15,7 +15,7 @@ const Container= styled.div`
 const Searchbox = styled.div`
   position:relative;
   top:50px;
-  background:black;
+  background:${props => props.theme.UIbackground};
   height:60px;
   border-radius:40px;
   cursor:pointer;
@@ -44,7 +44,7 @@ const SearchInput = styled.input`
 
 const SearchButton = styled.a`
   float:right;
-  background: black;
+  background: ${props => props.theme.UIbackground};
   height:60px;
   width:60px;
   border-radius:50%;

@@ -1,9 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import MusicPlayer from "../MusicPlayer";
 import SearchBar from "../SearchBar/SearchBar";
 import { TracklistContainer } from "../Tracklist/index.js";
 import { Col, Layout, Row} from "../../Grid";
+import { theme } from '../../themeStyles';
 
 const Background = styled.div`
   width: 100vw;
@@ -21,6 +22,7 @@ export const App = ({data,
                     togglePlay,
                     tracks}) => {
     return (
+      <ThemeProvider theme={theme}>
         <Background>
           <Layout margin="15">
             <Row>
@@ -41,5 +43,6 @@ export const App = ({data,
             </Row>
           </Layout>
         </Background>
+        </ThemeProvider>
     );
 }
