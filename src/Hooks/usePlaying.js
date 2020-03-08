@@ -11,8 +11,14 @@ export const usePlaying = () => {
     [dispatch]
   )
 
+  const setPlay = useCallback(
+    () => dispatch(actions.setPlay()),
+    [dispatch]
+  )
+
   return {
     audioElement,
+    setPlay,
     playing,
     togglePlay
   }

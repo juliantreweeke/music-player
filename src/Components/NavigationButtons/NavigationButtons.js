@@ -1,7 +1,9 @@
 import React from "react";
 import styled from 'styled-components/macro'
-import { selectTrack } from '../../redux/commonActions';
 import { ArrowIcon } from './ArrowIcon';
+import { useTracks } from '../../Hooks/useTracks.js';
+import { usePlaying } from '../../Hooks/usePlaying.js';
+
 
 const Layout = styled.div`
   display:flex;
@@ -16,13 +18,16 @@ const Layout = styled.div`
 `;
 
 const BackButton = ({data, selectedTrack}) => {
-  
+    const { setSelectedTrack } = useTracks();
+    const { setPlay } = usePlaying();
+
     const previousTrack = () => {
         if(selectedTrack === 0){
-            selectTrack(data.length - 1)
+            setSelectedTrack(data.length - 1)
           } else {
-            selectTrack(selectedTrack -= 1 )
+            setSelectedTrack(selectedTrack -= 1 )
           }
+          setPlay();
     }
     return (
         <ArrowIcon 
@@ -33,13 +38,17 @@ const BackButton = ({data, selectedTrack}) => {
     ) 
 } 
 
-const NextButton = ({data,selectedTrack}) => {
+const NextButton = ({data, selectedTrack}) => {
+    const { setSelectedTrack } = useTracks();
+    const { setPlay } = usePlaying();
+
     const nextTrack = () => {
         if(selectedTrack === data.length - 1){
-          selectTrack(0)
+          setSelectedTrack(0);
         } else {
-          selectTrack(selectedTrack += 1)
+          setSelectedTrack(selectedTrack += 1);
         }
+        setPlay();
     }
     return (
         <ArrowIcon 

@@ -1,7 +1,8 @@
 import React from "react";
+import { useTracks } from '../../Hooks/useTracks.js';
+import { usePlaying } from '../../Hooks/usePlaying.js';
 import styled from 'styled-components/macro'
 import { Transition } from 'react-spring/renderprops';
-import { selectTrack } from '../../redux/commonActions';
 import { media } from "../../Grid";
 
 const Card = styled.div`
@@ -74,7 +75,16 @@ const TrackContainer = styled.ul`
   height: 400px;
 `
 
-export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) => {
+export const Tracklist = ({querySearched, selectedTrack, tracks}) => {
+
+  const { setSelectedTrack } = useTracks();
+  const { setPlay } = usePlaying();
+
+  const handleTrackClick = (index) => {
+    setSelectedTrack(index);
+    setPlay();
+  }
+
   return (
     <Card>
         {querySearched && 
@@ -97,7 +107,7 @@ export const Tracklist = ({querySearched, selectTrack, selectedTrack, tracks}) =
                 const isTrackSelected = index === selectedTrack;
                 return (
                   <li css={`${listStyles};${isTrackSelected && selectedStyles};`} style={{ ...props }}
-                    onClick={() => selectTrack(index)}
+                    onClick={() => handleTrackClick(index)}
                   >
                     <p>{item.title}</p>
                   </li>
