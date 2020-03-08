@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components/macro'
 import { Transition } from 'react-spring/renderprops';
+import { selectTrack } from '../../redux/commonActions';
 import { media } from "../../Grid";
 
 const Card = styled.div`

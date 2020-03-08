@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import MusicPlayer from "../MusicPlayer";
 import SearchBar from "../SearchBar/SearchBar";
-import { TracklistContainer } from "../Tracklist/index.js";
+import { Tracklist } from "../Tracklist/Tracklist.js";
 import { Col, Layout, Row} from "../../Grid";
 import { theme } from '../../themeStyles';
 import { usePlaying } from '../../Hooks/usePlaying.js';
@@ -105,7 +105,7 @@ export const App = () => {
               <MusicPlayer data={data} playing={playing} selectedTrack={selectedTrack} togglePlay={togglePlay}/>
             </Col>
             <Col marginLeftRight="30" size="1" >
-              <TracklistContainer data={data} querySearched={querySearched} tracks={tracks} selectedTrack={selectedTrack} />
+              <Tracklist data={data} querySearched={querySearched} tracks={tracks} selectedTrack={selectedTrack} />
             </Col> 
           </Row>
         </Layout>

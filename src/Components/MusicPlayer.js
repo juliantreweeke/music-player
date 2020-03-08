@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import {Spring} from 'react-spring/renderprops';
 import Playbutton from "./Playbutton";
 import { NavigationButtons } from "./NavigationButtons/NavigationButtons";
-import { TrackImageContainer } from "./TrackImage/index.js";
+import { TrackImage } from "./TrackImage/TrackImage.js";
 import { DEFAULT_IMAGE_URL } from '../constants';
 import { media } from "../Grid";
 
@@ -54,7 +54,7 @@ const MusicPlayerContainer = ({ playing, togglePlay, data, selectedTrack }) => {
             <Playbutton playing={playing} togglePlay={togglePlay} /> 
             {data && data[0] && 
             <React.Fragment>
-              <TrackImageContainer image={imageUrlEdit} playing={playing} />
+              <TrackImage image={imageUrlEdit} playing={playing} />
             </React.Fragment>
             }
           </Card>
