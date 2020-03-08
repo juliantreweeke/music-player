@@ -1,11 +1,11 @@
 import React from "react";
-import styled, { useTheme } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 
-const svgStyles = ({data, theme}) => 
+const svgStyles = (data) => 
     `z-index:10;
     ${data && `cursor:pointer`};
     path {
-        fill:${data ? theme.btnColor : '#333738'};
+        fill:${data ? '#79D9C9' : '#333738'};
     };
     &:hover path {
         fill:${data ? 'white' : '#333738'};
@@ -17,10 +17,9 @@ const svgStyles = ({data, theme}) =>
 `
 
 export const ArrowIcon = ({ data, handleClick, rotate180}) => {
-    const theme = useTheme();
     return (
         <svg 
-            css={svgStyles({data, theme})} 
+            css={svgStyles(data)} 
             onClick={handleClick} 
             transform={rotate180 && 'rotate(180)'} 
             width="32" height="32" 

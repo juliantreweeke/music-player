@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationButtons matches snapshot with data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NavigationButtons__Layout-sc-1023fcf-0 eZyLDo"
+      >
+        <svg
+          class="ArrowIcon___StyledSvg-sc-2hfh0e-0 hnmMkd"
+          height="32"
+          transform="rotate(180)"
+          viewBox="0 0 16 16"
+          width="32"
+        >
+          <path
+            d="M2 1v14l10-7z"
+          />
+          <path
+            d="M12 1h2v14h-2v-14z"
+          />
+        </svg>
+        <svg
+          class="ArrowIcon___StyledSvg-sc-2hfh0e-0 hnmMkd"
+          height="32"
+          viewBox="0 0 16 16"
+          width="32"
+        >
+          <path
+            d="M2 1v14l10-7z"
+          />
+          <path
+            d="M12 1h2v14h-2v-14z"
+          />
+        </svg>
+      </div>
+      )
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NavigationButtons__Layout-sc-1023fcf-0 eZyLDo"
+    >
+      <svg
+        class="ArrowIcon___StyledSvg-sc-2hfh0e-0 hnmMkd"
+        height="32"
+        transform="rotate(180)"
+        viewBox="0 0 16 16"
+        width="32"
+      >
+        <path
+          d="M2 1v14l10-7z"
+        />
+        <path
+          d="M12 1h2v14h-2v-14z"
+        />
+      </svg>
+      <svg
+        class="ArrowIcon___StyledSvg-sc-2hfh0e-0 hnmMkd"
+        height="32"
+        viewBox="0 0 16 16"
+        width="32"
+      >
+        <path
+          d="M2 1v14l10-7z"
+        />
+        <path
+          d="M12 1h2v14h-2v-14z"
+        />
+      </svg>
+    </div>
+    )
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`NavigationButtons matches snapshot without data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NavigationButtons__Layout-sc-1023fcf-0 eZyLDo"
+      >
+        <svg
+          class="ArrowIcon___StyledSvg-sc-2hfh0e-0 eEvyzd"
+          height="32"
+          transform="rotate(180)"
+          viewBox="0 0 16 16"
+          width="32"
+        >
+          <path
+            d="M2 1v14l10-7z"
+          />
+          <path
+            d="M12 1h2v14h-2v-14z"
+          />
+        </svg>
+        <svg
+          class="ArrowIcon___StyledSvg-sc-2hfh0e-0 eEvyzd"
+          height="32"
+          viewBox="0 0 16 16"
+          width="32"
+        >
+          <path
+            d="M2 1v14l10-7z"
+          />
+          <path
+            d="M12 1h2v14h-2v-14z"
+          />
+        </svg>
+      </div>
+      )
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NavigationButtons__Layout-sc-1023fcf-0 eZyLDo"
+    >
+      <svg
+        class="ArrowIcon___StyledSvg-sc-2hfh0e-0 eEvyzd"
+        height="32"
+        transform="rotate(180)"
+        viewBox="0 0 16 16"
+        width="32"
+      >
+        <path
+          d="M2 1v14l10-7z"
+        />
+        <path
+          d="M12 1h2v14h-2v-14z"
+        />
+      </svg>
+      <svg
+        class="ArrowIcon___StyledSvg-sc-2hfh0e-0 eEvyzd"
+        height="32"
+        viewBox="0 0 16 16"
+        width="32"
+      >
+        <path
+          d="M2 1v14l10-7z"
+        />
+        <path
+          d="M12 1h2v14h-2v-14z"
+        />
+      </svg>
+    </div>
+    )
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

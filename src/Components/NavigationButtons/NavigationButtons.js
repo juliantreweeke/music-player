@@ -17,7 +17,7 @@ const Layout = styled.div`
   justify-content: space-between;
 `;
 
-const BackButton = ({data, selectedTrack}) => {
+export const BackButton = ({data, selectedTrack}) => {
     const { setSelectedTrack } = useTracks();
     const { setPlay } = usePlaying();
 
@@ -38,7 +38,7 @@ const BackButton = ({data, selectedTrack}) => {
     ) 
 } 
 
-const NextButton = ({data, selectedTrack}) => {
+export const NextButton = ({data, selectedTrack}) => {
     const { setSelectedTrack } = useTracks();
     const { setPlay } = usePlaying();
 

@@ -1,0 +1,386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackList matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="Tracklist__Card-sc-1odr728-0 hULKon"
+      >
+        <div
+          class="Tracklist__HeadingContainer-sc-1odr728-1 jjKLpr"
+        >
+          <span>
+            <h2>
+              Song
+            </h2>
+            <p>
+              2
+               Search Results
+            </p>
+          </span>
+        </div>
+        <ul
+          class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+        >
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song1
+            </p>
+          </li>
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song2
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Tracklist__Card-sc-1odr728-0 hULKon"
+    >
+      <div
+        class="Tracklist__HeadingContainer-sc-1odr728-1 jjKLpr"
+      >
+        <span>
+          <h2>
+            Song
+          </h2>
+          <p>
+            2
+             Search Results
+          </p>
+        </span>
+      </div>
+      <ul
+        class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+      >
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song1
+          </p>
+        </li>
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song2
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TrackList matches snapshot with no querySearched 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="Tracklist__Card-sc-1odr728-0 hULKon"
+      >
+        <ul
+          class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+        >
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song1
+            </p>
+          </li>
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song2
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Tracklist__Card-sc-1odr728-0 hULKon"
+    >
+      <ul
+        class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+      >
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song1
+          </p>
+        </li>
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song2
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TrackList matches snapshot with non default selectedTrack 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="Tracklist__Card-sc-1odr728-0 hULKon"
+      >
+        <div
+          class="Tracklist__HeadingContainer-sc-1odr728-1 jjKLpr"
+        >
+          <span>
+            <h2>
+              Song
+            </h2>
+            <p>
+              2
+               Search Results
+            </p>
+          </span>
+        </div>
+        <ul
+          class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+        >
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song1
+            </p>
+          </li>
+          <li
+            class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+            style="opacity: 0; height: 0px;"
+          >
+            <p>
+              song2
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Tracklist__Card-sc-1odr728-0 hULKon"
+    >
+      <div
+        class="Tracklist__HeadingContainer-sc-1odr728-1 jjKLpr"
+      >
+        <span>
+          <h2>
+            Song
+          </h2>
+          <p>
+            2
+             Search Results
+          </p>
+        </span>
+      </div>
+      <ul
+        class="Tracklist__TrackContainer-sc-1odr728-2 fvBEZw"
+      >
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 lnaxlV"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song1
+          </p>
+        </li>
+        <li
+          class="Tracklist___StyledLi-sc-1odr728-3 cPRJbD"
+          style="opacity: 0; height: 0px;"
+        >
+          <p>
+            song2
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -7,7 +7,7 @@ import { rootReducer } from '../../redux/ducks/index';
 import { createStore, applyMiddleware } from 'redux';
 import { render } from '@testing-library/react'
 
-describe.skip('<AppContainer /> unit test', () => {
+describe.skip('<App /> unit test', () => {
   const mockStore = createStore(rootReducer,applyMiddleware(thunk));
   const getWrapper = () => shallow(
     <Provider store={mockStore}>
