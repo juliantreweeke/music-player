@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import MusicPlayer from "../MusicPlayer";
-import SearchBar from "../SearchBar/SearchBar";
+import { SearchBar } from "../SearchBar/SearchBar";
 import { Tracklist } from "../Tracklist/Tracklist.js";
 import { Col, Layout, Row} from "../../Grid";
 import { theme } from '../../themeStyles';

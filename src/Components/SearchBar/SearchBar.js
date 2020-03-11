@@ -42,7 +42,7 @@ const SearchInput = styled.input`
   width:0px;
 `
 
-const SearchButton = styled.a`
+const SearchButton = styled.button`
   float:right;
   background: ${props => props.theme.UIbackground};
   height:60px;
@@ -55,7 +55,7 @@ const SearchButton = styled.a`
   }
 `;
 
-const SearchBar = ({
+export const SearchBar = ({
         searchTracks
     }) => {
 
@@ -80,5 +80,3 @@ const SearchBar = ({
         </Container>
     );
 };
-
-export default SearchBar;
